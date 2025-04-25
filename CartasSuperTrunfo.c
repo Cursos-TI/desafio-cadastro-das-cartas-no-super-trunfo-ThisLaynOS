@@ -15,7 +15,7 @@ int main() {
     int Numero_populacional1;
     int Numero_pontos_turisticos1;
 
-    float area_km1, pib1;
+    float area_km1, pib1, densidade1, pib_per_capita1;
 
 
     char Estado2[20], Carta_codigo2[20], Cidade2[20];
@@ -23,7 +23,7 @@ int main() {
     int Numero_populacional2;
     int Numero_pontos_turisticos2;
 
-    float area_km2, pib2;
+    float area_km2, pib2, densidade2, pib_per_capita2;
 
     // Cadastro das Cartas:
     // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
@@ -59,6 +59,10 @@ int main() {
     // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
     // Exiba os valores inseridos para cada atributo da cidade, um por linha.
 
+    densidade1 = (float) Numero_populacional1 / area_km1; // Calcula densidade populacional, forçando conversao do int pra float da variavel Numero_populacional  em seguida realizando o calculo e Guardando na variavel densidade
+     pib_per_capita1 = pib1  / (float) Numero_populacional1; // Converti Numero_populacional de int para float para garantir precisão no cálculo,
+    // obtendo assim o PIB per capita correto em reais por habitante
+    
     printf(
         "_-_-_-_-_-_- Carta 1 _-_-_-_-_-_- \n"
         "- Estado: %s\n"
@@ -67,8 +71,10 @@ int main() {
         "- Numero Populacional: %d\n"
         "- Numero de Pontos Turisticos: %d\n"
         "- Area: %f km2\n"
-        "- PIB: R$ %.2f bilhões de reais\n",
-        Estado1, Carta_codigo1, Cidade1, Numero_populacional1, Numero_pontos_turisticos1, area_km1, pib1);
+        "- PIB: R$ %.2f bilhões de reais\n"
+        "- Densidade Populacional: %.2f hab/km²\n"
+        "- PIB per Capita: %.2f reais\n",
+        Estado1, Carta_codigo1, Cidade1, Numero_populacional1, Numero_pontos_turisticos1, area_km1, pib1, densidade1, pib_per_capita1);
 
         
     
@@ -98,9 +104,14 @@ int main() {
  
      printf("-> Digite o numero do pib: \n");
      scanf("%f", &pib2);
+
+     densidade2 = (float) Numero_populacional2 / area_km2; // Calcula densidade populacional, forçando conversao do int pra float da variavel Numero_populacional  em seguida realizando o calculo e Guardando na variavel densidade
+     pib_per_capita2 = pib2  / (float) Numero_populacional2; // Converti Numero_populacional de int para float para garantir precisão no cálculo,
+    // obtendo assim o PIB per capita correto em reais por habitante
  
 
-     printf(
+    // Exibiçao das informaçoes
+    printf(
         "_-_-_-_-_-_- Carta 2 _-_-_-_-_-_- \n"
         "- Estado: %s\n"
         "- Codigo da carta: %s\n"
@@ -108,7 +119,9 @@ int main() {
         "- Numero Populacional: %d\n"
         "- Numero de Pontos Turisticos: %d\n"
         "- Area: %f km2\n"
-        "- PIB: R$ %.2f bilhões de reais\n",
-        Estado2, Carta_codigo2, Cidade2, Numero_populacional2, Numero_pontos_turisticos2, area_km2, pib2);
+        "- PIB: R$ %.2f bilhões de reais\n"
+        "- Densidade Populacional: %.2f hab/km²\n"
+        "- PIB per Capita: %.2f reais\n",
+        Estado2, Carta_codigo2, Cidade2, Numero_populacional2, Numero_pontos_turisticos2, area_km2, pib2, densidade2, pib_per_capita2);
     return 0;
 }
